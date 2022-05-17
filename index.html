@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Zanimljive geografije</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <script src="jquery-3.6.0.js"></script>
+    <script src='GeoSkripta.js'></script>
+</head>
+<body>
+    <container id="pocetniKontenjer">
+        <h1 class="centar">Zanimljive Geografije</h1>
+        <h3 class="centar">by Jakov</h3>
+        <p class="centar">Dobrodošli u zanimljive geografije, počnite igru kilkom na dugme ispod.</p>
+        <div class="centar">
+            <button title="Počni" id="start" onclick="randomLetter()">
+                <p>Počni<br>
+            </button>
+        </div>
+    </container>
+    <container id="kontenjer">
+        <div>
+        <h1>Država:</h1>
+        <p id="ans-country"></p>
+        <input type="text" id="countryInput"><br>
+        <div class="flex-container">
+            <button title="Proveri odgovor" id="check-country" onclick="autocorrect('countryInput'); checkAnswer('countryInput'); ">
+                <p>Proveri odgovor<br>
+            </button>
+            <button title="Potvrdi odgovor" id="confirm-country" onclick="confirmAnswer('countryInput')">
+                <p>Potvrdi odgovor<br>
+            </button>
+            <button title="Obriši odgovor" id="delete-country" onclick="deleteAnswer('countryInput')">
+                <p>Obriši odgovor<br>
+            </button>
+        </div>
+        </div>
+        <div>
+            <h1>Grad:</h1>
+            <p id="ans-city"></p>
+            <input type="text" id="cityInput"><br>
+            <div class="flex-container">
+                <button title="Proveri odgovor" id="check-city" onclick="autocorrect('cityInput'); checkAnswer('cityInput');">
+                    <p>Proveri odgovor<br>
+                </button>
+                <button title="Potvrdi odgovor" id="confirm-city" onclick="confirmAnswer('cityInput')">
+                    <p>Potvrdi odgovor<br>
+                </button>
+                <button title="Obriši odgovor" id="delete-city" onclick="deleteAnswer('cityInput')">
+                    <p>Obriši odgovor<br>
+                </button>
+            </div>
+            </div>
+        <div>
+            <h1>Selo:</h1>
+            <p id="ans-village"></p>
+            <input type="text" id="villageInput"><br>
+            <div class="flex-container">
+                <button title="Proveri odgovor" id="check-village" onclick="autocorrect('villageInput'); checkAnswer('villageInput');">
+                    <p>Proveri odgovor<br>
+                </button>
+                <button title="Potvrdi odgovor" id="confirm-village" onclick="confirmAnswer('villageInput')">
+                    <p>Potvrdi odgovor<br>
+                </button>
+                <button title="Obriši odgovor" id="delete-village" onclick="deleteAnswer('villageInput')">
+                    <p>Obriši odgovor<br>
+                </button>
+            </div>
+            </div>
+        <div>
+            <h1>Planina:</h1>
+            <p id="ans-mountain"></p>
+            <input type="text" id="mountainInput"><br>
+            <div class="flex-container">
+                <button title="Proveri odgovor" id="check-mountain" onclick="autocorrect('mountainInput'); checkAnswer('mountainInput');">
+                    <p>Proveri odgovor<br>
+                </button>
+                <button title="Potvrdi odgovor" id="confirm-mountain" onclick="confirmAnswer('mountainInput')">
+                    <p>Potvrdi odgovor<br>
+                </button>
+                <button title="Obriši odgovor" id="delete-mountain" onclick="deleteAnswer('mountainInput')">
+                    <p>Obriši odgovor<br>
+                </button>
+            </div>
+            </div>
+        <div>
+            <h1>Reka:</h1>
+            <p id="ans-river"></p>
+            <input type="text" id="riverInput"><br>
+            <div class="flex-container">
+                <button title="Proveri odgovor" id="check-river" onclick="autocorrect('riverInput'); checkAnswer('riverInput');">
+                    <p>Proveri odgovor<br>
+                </button>
+                <button title="Potvrdi odgovor" id="confirm-river" onclick="confirmAnswer('riverInput')">
+                    <p>Potvrdi odgovor<br>
+                </button>
+                <button title="Obriši odgovor" id="delete-river" onclick="deleteAnswer('riverInput')">
+                    <p>Obriši odgovor<br>
+                </button>
+            </div>
+        </div>
+    </container>
+    <container id="kontenjer2">
+        <h1 class="centar" id="slovo"></h1>
+        <button title="Potvrdi listu" id="confirmList" onclick="confirmList(), showList()">
+            <p>Potvrdi listu<br>
+        </button>
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+        <p id="p4"></p>
+        <p id="p5"></p>   
+    </container>
+</body>
+</html>

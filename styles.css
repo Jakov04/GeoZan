@@ -1,0 +1,77 @@
+.flex-container{
+    display: flex;
+    padding-top: 10px;
+    width: 250px;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+}
+#kontenjer{
+    display: none;
+    width: 100%;
+    justify-content:space-evenly;
+}
+#kontenjer2{
+    display: none;
+    width: 100%;
+    justify-content:space-evenly;
+}
+#confirm-country{
+    display: none;
+
+}
+#ans-country{
+    display: none;
+}
+
+#confirm-city{
+    display: none;
+
+}
+#ans-city{
+    display: none;
+}
+#confirm-village{
+    display: none;
+
+}
+#ans-village{
+    display: none;
+}
+#confirm-mountain{
+    display: none;
+
+}
+#ans-mountain{
+    display: none;
+}
+#confirm-river{
+    display: none;
+
+}
+#ans-river{
+    display: none;
+}
+#confirmList{
+    display: flex;
+    margin: auto;
+}
+.centar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#start{
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:30px;
+    padding-right:30px;
+}
+#pocetniKontenjer{
+    position:fixed;
+    top:30%;
+    left:35%;
+}
+
+
