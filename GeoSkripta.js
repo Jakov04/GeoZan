@@ -1,4 +1,4 @@
-const country = ['Afganistan', 'Albanija', 'Alzir', 'Andora', 'Angola', 'Angvila', 'Antigva i Barbuda', 'Argentina', 'Australija', 'Austrija', 'Azerbejdzan','Bahami', 'Bahrein', 'Bangladeš', 'Barbados', 'Belgija', 'Belize', 'Belorusija', 'Benin', 'Bermuda', 'Bolivija', 'Butan', 'Bocvana', 'Bosna i Hercegovina', 'Brazil', 'Brunej', 'Bugarska', 'Burkina Faso', 'Burundi'];
+const country = ["Afganistan", "Albanija", "Alzir", "Andora", "Angola", "Angvila", "Antigva i Barbuda", "Argentina", "Australija", "Austrija", "Azerbejdzan", "Bahami", "Bahrein", "Banglades", "Barbados", "Belgija", "Belize", "Belorusija", "Benin", "Bermuda", "Bolivija", "Butan", "Bocvana", "Bosna i Hercegovina", "Brazil", "Brunej", "Bugarska", "Burkina Faso", "Burundi", "Centralnoafricka Republika", "Crna Gora", "Cad", "Ceska", "Cile", "Danska", "Dominika", "Dominikanska Republika", "Dzibuti", "Ekvador", "Egipat", "Ekvatorijalna Gvineja", "Eritreja", "Estonija", "Etiopija", "Folklandska ostrva", "Farska ostrva", "Fidzi", "Filipini", "Finska", "Francuska", "Gabon", "Gambija", "Gana", "Gibraltar", "Grcka", "Grenada", "Grenland", "Gruzija", "Gvatemala", "Gvajana", "Gvineja", "Gvineja Bisao", "Haiti", "Honduras", "Holandija", "Hrvatska", "Indija", "Indonezija", "Irak", "Iran", "Irska", "Island", "Italija", "Izrael", "Jamajka", "Japan", "Jemen", "Jermenija", "Jordan", "Juzna Afrika", "Kambodza", "Kamerun", "Kanada", "Kajmanska ostrva", "Katar", "Kazahstan", "Kenija", "Kina", "Kipar", "Kirgistan", "Kolumbija", "Kongo", "Kostarika", "Kuba", "Kuvajt", "Laos", "Litvanija", "Lesoto", "Liban", "Liberija", "Libija", "Lihtenstajn", "Letonija", "Luksemburg", "Madagaskar", "Madjarska", "Makedonija", "Malavi", "Maldivi", "Malezija", "Mali", "Malta", "Maroko", "Marsalska ostrva", "Mauricijus", "Mauritanija", "Meksiko", "Mjanmar", "Mikronezija", "Moldavija", "Monako", "Mongolija", "Mozambik", "Namibija", "Nemacka", "Nikaragva", "Niger", "Nigerija", "Norveska", "Novi Zeland", "Obala Slonovace", "Oman", "Pakistan", "Panama", "Papua Nova Gvineja", "Paragvaj", "Peru", "Poljska", "Portugal", "Portoriko", "Rumunija", "Rusija", "Ruanda", "Salvador", "Samoa", "San Marino", "Saudijska Arabija", "Sejseli", "Senegal", "Severna Koreja", "Sijera Leone", "Singapur", "Sirija", "Sjedinjene Drzave", "Slovacka", "Slovenija", "Solomonska ostrva", "Somalija", "Srbija", "Sudan", "Surinam", "Svaziland", "Sveti Toma i Princip", "Sveti Vincent i Grenadini", "Spanija", "Sri Lanka", "Svedska", "Svajcarska", "Tadzikistan", "Tajland", "Tanzanija", "Togo", "Tonga", "Trinidad i Tobago", "Tunis", "Turska", "Turkmenistan", "Uganda", "Ukrajina", "Ujedinjeni Arapski Emirati", "Ujedinjeno Kraljevstvo", "Urugvaj", "Uzbekistan", "Vanuatu", "Vatikan", "Venecuela", "Vijetnam", "Vels", "Zambija", "Zimbabve"];
 const city = ["Beograd", "London", "Milan", "Lazarevac", "Abu Dabi", "Novi Sad"];
 const village = ["Petka", "Belanovica", "Sopic", "Arapovac"];
 const mountain = ["Kopaonik", "Kilimandzaro", "Zlatibor", "Zlatar", "Tara", "Himalaji"];
@@ -105,7 +105,6 @@ function autocorrect(ID){
             x = pre + posle;
         }
     }
-    alert("Uneli ste: "+x);
     $(ID).value = x;
 }
 function randomLetter() {
@@ -119,17 +118,19 @@ function randomLetter() {
     
 }
 function checkAnswer(ID){
-    alert($(ID).value[0]);
-    if($(ID).value[0]==slovo){
+    if($(ID).value[0]==slovo||(slovo=="Š"&&$(ID).value[0]=="S")||(slovo=="Č"&&$(ID).value[0]=="C")||(slovo=="Ć"&&$(ID).value[0]=="C")||(slovo=="Đ"&&$(ID).value[0]=="Dj")||(slovo=="Ž"&&$(ID).value[0]=="Z")){
     if(ID =='countryInput'){
         countryAnswer = $(ID).value;
         if (country.indexOf(countryAnswer) >= 0) {
-            alert("Vaš odgovor ("+countryAnswer+"), je ispravan. Ako ste sigurni potvrdite odgovor klikom na dugme.");
+            tata.info('Uneli ste: '+countryAnswer, 'Odgovor je ispravan, ako ste sigurni potvrdite odgovor.', {
+                position: 'tm', duration: 2000});
             $("check-country").style.display = "none";
             $("confirm-country").style.display = "block";    
         }
         else{
-            alert("Nažalost, ne možemo da prihvatimo odgovor.");
+            tata.error('Uneli ste: '+countryAnswer, 'Odgovor je neispravan, pokušajte ponovo', {
+                position: 'tm', duration: 2000});
+                countryAnswer= null;
         }
     }
     else if(ID == 'cityInput'){
@@ -178,19 +179,22 @@ function checkAnswer(ID){
     }
     }
     else{
-        alert("Uneli ste reč na pogrešno slovo.")
+        tata.error('Uneli ste reč na pogrešno slovo ', 'Pokušajte ponovo', {
+            position: 'tm', duration: 2000});
     } 
 }
 function confirmAnswer(ID){
     if(ID =='countryInput'){
         if($(ID).value!=countryAnswer){
-            alert("Promenili ste odgovor, molimo vas da ponovo izvršite proveru.")
+            tata.warn('Promenili ste odgovor.', 'Izvršite proveru.', {
+                position: 'tm', duration: 2000});
             $("confirm-country").style.display = "none";
             $("check-country").style.display = "block";
             countryAnswer=null;
             return; 
         }
-        alert('Odgovor potvrđen');
+        tata.success('Odgovor je potvrđen.', 'Ukoliko želite da promenite odgovor, obrišite ga.', {
+            position: 'tm', duration: 2000});
         $("countryInput").style.display = "none";
         $("confirm-country").style.display = "none";
         $("ans-country").style.display = "block";
@@ -198,7 +202,8 @@ function confirmAnswer(ID){
     }
     else if(ID =='cityInput'){
         if($(ID).value!=cityAnswer){
-            alert("Promenili ste odgovor, molimo vas da ponovo izvršite proveru.")
+            tata.warn('Promenili ste odgovor.', 'Izvršite proveru.', {
+                position: 'tm', duration: 2000});
             $("confirm-city").style.display = "none";
             $("check-city").style.display = "block";
             countryAnswer=null;
@@ -256,7 +261,8 @@ function confirmAnswer(ID){
 function deleteAnswer(ID){
     if(ID == 'countryInput'){
         countryAnswer = null;
-        alert('Odgovor je obrisan');
+        tata.warn('Odgovor je obrisan.', 'Unesite novi.', {
+            position: 'tm', duration: 2000});
         $("check-country").style.display = "block";
         $(ID).style.display = "block";
         $("confirm-country").style.display = "none";
