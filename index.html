@@ -6,52 +6,54 @@
     <title>Zanimljive geografije</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d545d758e6.js" crossorigin="anonymous"></script>
     <script src="jquery-3.6.0.js"></script>
     <script src='GeoSkripta.js'></script>
     <script src="tata.js"></script>
 </head>
 <body>
     <container id="pocetniKontenjer">
-        <h1 class="centar">Zanimljive Geografije</h1>
-        <h3 class="centar">by Jakov</h3>
-        <p class="centar">Dobrodošli u zanimljive geografije, počnite igru kilkom na dugme ispod.</p>
-        <div class="centar">
-            <button title="Počni" id="start" onclick="randomLetter()">
-                <p>Počni<br>
-            </button>
-        </div>
+        <h1>Zanimljive Geografije</h1>
+        <h3>by Jakov</h3>
+        <p >Dobrodošli u zanimljive geografije, počnite igru kilkom na dugme ispod.</p>
+        <button class="btn" title="Počni" class="btn" id="start" onclick="randomLetter()">
+            <p>Počni<br>
+        </button class="btn">
     </container>
     <container id="kontenjer">
         <div>
         <h1>Država:</h1>
-        <p id="ans-country"></p>
-        <input type="text" id="countryInput"><br>
+        <div class="flex-input">
+            <p id="ans-country"></p>
+            <i class="fa-solid fa-xmark fa-lg" id="checkSign1"></i>
+            <input type="text" class="input" id="countryInput" onkeydown="keyInput('countryInput')"><br>
+        </div>
         <div class="flex-container">
-            <button title="Proveri odgovor" id="check-country" onclick="autocorrect('countryInput'); checkAnswer('countryInput'); ">
-                <p>Proveri odgovor<br>
-            </button>
-            <button title="Potvrdi odgovor" id="confirm-country" onclick="confirmAnswer('countryInput')">
+            <button class="btn" title="Potvrdi" id="confirm-country" onclick="confirmAnswer('countryInput')">
                 <p>Potvrdi odgovor<br>
-            </button>
-            <button title="Obriši odgovor" id="delete-country" onclick="deleteAnswer('countryInput')">
+            </button class="btn">
+            <button class="delete btn" title="Obriši" id="delete-country" onclick="deleteAnswer('countryInput')">
                 <p>Obriši odgovor<br>
-            </button>
+            </button class="btn">
         </div>
         </div>
         <div>
             <h1>Grad:</h1>
-            <p id="ans-city"></p>
-            <input type="text" id="cityInput"><br>
+            <div class="flex-input">
+                <p id="ans-city"></p>
+                <i class="fa-solid fa-xmark fa-lg" id="checkSign1"></i>
+                <input type="text" id="cityInput"><br>
+            </div>
             <div class="flex-container">
-                <button title="Proveri odgovor" id="check-city" onclick="autocorrect('cityInput'); checkAnswer('cityInput');">
-                    <p>Proveri odgovor<br>
-                </button>
-                <button title="Potvrdi odgovor" id="confirm-city" onclick="confirmAnswer('cityInput')">
+                <button class="btn" title="Potvrdi" id="confirm-city" onclick="confirmAnswer('cityInput')">
                     <p>Potvrdi odgovor<br>
-                </button>
-                <button title="Obriši odgovor" id="delete-city" onclick="deleteAnswer('cityInput')">
+                </button class="btn">
+                <button class="btn" title="Obriši" id="delete-city" onclick="deleteAnswer('cityInput')">
                     <p>Obriši odgovor<br>
-                </button>
+                </button class="btn">
             </div>
             </div>
         <div>
@@ -59,15 +61,12 @@
             <p id="ans-village"></p>
             <input type="text" id="villageInput"><br>
             <div class="flex-container">
-                <button title="Proveri odgovor" id="check-village" onclick="autocorrect('villageInput'); checkAnswer('villageInput');">
-                    <p>Proveri odgovor<br>
-                </button>
-                <button title="Potvrdi odgovor" id="confirm-village" onclick="confirmAnswer('villageInput')">
+                <button class="btn" title="Potvrdi" id="confirm-village" onclick="confirmAnswer('villageInput')">
                     <p>Potvrdi odgovor<br>
-                </button>
-                <button title="Obriši odgovor" id="delete-village" onclick="deleteAnswer('villageInput')">
+                </button class="btn">
+                <button class="btn" title="Obriši" id="delete-village" onclick="deleteAnswer('villageInput')">
                     <p>Obriši odgovor<br>
-                </button>
+                </button class="btn">
             </div>
             </div>
         <div>
@@ -75,15 +74,12 @@
             <p id="ans-mountain"></p>
             <input type="text" id="mountainInput"><br>
             <div class="flex-container">
-                <button title="Proveri odgovor" id="check-mountain" onclick="autocorrect('mountainInput'); checkAnswer('mountainInput');">
-                    <p>Proveri odgovor<br>
-                </button>
-                <button title="Potvrdi odgovor" id="confirm-mountain" onclick="confirmAnswer('mountainInput')">
+                <button class="btn" title="Potvrdi" id="confirm-mountain" onclick="confirmAnswer('mountainInput')">
                     <p>Potvrdi odgovor<br>
-                </button>
-                <button title="Obriši odgovor" id="delete-mountain" onclick="deleteAnswer('mountainInput')">
+                </button class="btn">
+                <button class="btn" title="Obriši" id="delete-mountain" onclick="deleteAnswer('mountainInput')">
                     <p>Obriši odgovor<br>
-                </button>
+                </button class="btn">
             </div>
             </div>
         <div>
@@ -91,28 +87,38 @@
             <p id="ans-river"></p>
             <input type="text" id="riverInput"><br>
             <div class="flex-container">
-                <button title="Proveri odgovor" id="check-river" onclick="autocorrect('riverInput'); checkAnswer('riverInput');">
-                    <p>Proveri odgovor<br>
-                </button>
-                <button title="Potvrdi odgovor" id="confirm-river" onclick="confirmAnswer('riverInput')">
+                <button class="btn" title="Potvrdi" id="confirm-river" onclick="confirmAnswer('riverInput')">
                     <p>Potvrdi odgovor<br>
-                </button>
-                <button title="Obriši odgovor" id="delete-river" onclick="deleteAnswer('riverInput')">
+                </button class="btn">
+                <button class="btn" title="Obriši" id="delete-river" onclick="deleteAnswer('riverInput')">
                     <p>Obriši odgovor<br>
-                </button>
+                </button class="btn">
             </div>
         </div>
     </container>
     <container id="kontenjer2">
-        <h1 class="centar" id="slovo"></h1>
-        <button title="Potvrdi listu" id="confirmList" onclick="confirmList(), showList()">
-            <p>Potvrdi listu<br>
-        </button>
-        <p id="p1"></p>
-        <p id="p2"></p>
-        <p id="p3"></p>
-        <p id="p4"></p>
-        <p id="p5"></p>   
+        <div id="dugmad">
+            <h1 class="centar" id="slovo"></h1>
+            <!--<button class="btn" title="Promeni slovo" id="changeLetter" onclick="randomLetter(), deleteList()">
+                <p>Promeni slovo<br>
+            </button class="btn">-->
+            <input type="text" id="menjaj" style="padding-left:10px;">
+            <button class="btn" title="Promeni slovo"onclick="menjaj()">
+                <p>Promeni slovo<br>
+            </button class="btn">
+            <button class="btn" title="Obriši" id="deleteList" onclick="deleteList()">
+                <p>Obriši sve odgovore<br>
+            </button class="btn">
+            <button class="btn" title="Potvrdi listu" id="confirmList" onclick="confirmList(), showList()">
+                <p>Potvrdi listu<br>
+            </button class="btn">
+        </div>
+        <h2 id="p1"></p>
+        <h2 id="p2"></p>
+        <h2 id="p3"></p>
+        <h2 id="p4"></p>
+        <h2 id="p5"></p>
+        <h1 id="p6"></p>    
     </container>
 </body>
 </html>
