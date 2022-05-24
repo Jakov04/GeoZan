@@ -46,7 +46,7 @@ body{
     display: none;
     font-size: 20px;
     margin-top: -4px;
-
+    margin-bottom: 2px;
 }
 
 #confirm-city{
