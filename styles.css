@@ -1,0 +1,146 @@
+body{
+    background-color: #251D3A;
+    font-family: 'Montserrat', sans-serif;
+}
+.delete{
+    display: none !important; 
+}
+#pocetniKontenjer{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+#kontenjer{
+    display: none;
+    width: 100%;
+    justify-content:space-evenly;
+    color: white;
+    background: rgba(74, 70, 102, 0.27);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(74, 70, 102, 1)
+}
+#kontenjer2{
+    display: none;
+    width: 100%;
+    justify-content:space-evenly;
+    color: white;
+}
+.flex-container{
+    display: flex;
+    padding-top: 10px;
+    width: 250px;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+}
+#confirm-country{
+    display: none;
+
+}
+#ans-country{
+    display: none;
+    font-size: 20px;
+    margin-top: -4px;
+    margin-bottom: 2px;
+}
+
+#confirm-city{
+    display: none;
+
+}
+#ans-city{
+    display: none;
+}
+#confirm-village{
+    display: none;
+
+}
+#ans-village{
+    display: none;
+}
+#confirm-mountain{
+    display: none;
+
+}
+#ans-mountain{
+    display: none;
+}
+#confirm-river{
+    display: none;
+
+}
+#ans-river{
+    display: none;
+}
+#confirmList{
+    display: flex;
+    margin: auto;
+}
+#changeLetter{
+    display: flex;
+    margin: auto;
+}
+#deleteList{
+    display: flex;
+    margin: auto;
+}
+
+#start{
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:30px;
+    padding-right:30px;
+}
+#dugmad{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+}
+.fa-xmark{
+    color:red; 
+    padding-right: 10px;
+    --fa-animation-duration: 4s; 
+}
+.fa-check{
+    color:green;
+    padding-right: 10px;
+    position: static;
+}
+.fa-lg{
+    line-height: normal !important;
+    padding-right: normal !important;
+}
+.input{
+    position:static;
+}
+.btn {
+    display: inline-block;
+    border: 0;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: rgba(255, 201, 126, 0.274);
+    border: 1px solid #EA9215;
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 10px 4px 12px rgb(36, 36, 36);
+  }
+ 
+.btn:hover {
+background-color: rgba(255,255,255,0.2);
+}
+.flex-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+        
