@@ -167,6 +167,7 @@ function tempCheck(){
 }
 
 function keyInput(ID){
+    alert(ID);
     if(event.key == 'Enter') {
             confirmAnswer(ID);}
     else if (event.key == "Backspace"){

@@ -29,10 +29,10 @@
         <div class="flex-input">
             <p id="ans-country"></p>
             <i class="fa-solid fa-xmark fa-lg" id="checkSign1"></i>
-            <input type="text" class="input" id="countryInput" onkeydown="keyInput('countryInput')"><br>
+            <input type="text" class="input" id="countryInput" onkeydown="keyInput(this.id)"><br>
         </div>
         <div class="flex-container">
-            <button class="btn" title="Potvrdi" id="confirm-country" onclick="confirmAnswer('countryInput')">
+            <button class="btn" title="Potvrdi" id="confirm-country" onclick="confirmAnswer(this.id)">
                 <p>Potvrdi odgovor<br>
             </button class="btn">
             <button class="delete btn" title="Obriši" id="delete-country" onclick="deleteAnswer('countryInput')">
@@ -44,8 +44,8 @@
             <h1>Grad:</h1>
             <div class="flex-input">
                 <p id="ans-city"></p>
-                <i class="fa-solid fa-xmark fa-lg" id="checkSign1"></i>
-                <input type="text" id="cityInput"><br>
+                <i class="fa-solid fa-xmark fa-lg" id="checkSign2"></i>
+                <input type="text" id="cityInput" onkeydown="keyInput(this.id)"><br>
             </div>
             <div class="flex-container">
                 <button class="btn" title="Potvrdi" id="confirm-city" onclick="confirmAnswer('cityInput')">
@@ -58,8 +58,11 @@
             </div>
         <div>
             <h1>Selo:</h1>
-            <p id="ans-village"></p>
-            <input type="text" id="villageInput"><br>
+            <div class="flex-input">
+                <p id="ans-village"></p>
+                <i class="fa-solid fa-xmark fa-lg" id="checkSign3"></i>
+                <input type="text" class="input" id="villageInput" onkeydown="keyInput(this.id)"><br>
+            </div>
             <div class="flex-container">
                 <button class="btn" title="Potvrdi" id="confirm-village" onclick="confirmAnswer('villageInput')">
                     <p>Potvrdi odgovor<br>
@@ -71,8 +74,11 @@
             </div>
         <div>
             <h1>Planina:</h1>
-            <p id="ans-mountain"></p>
-            <input type="text" id="mountainInput"><br>
+            <div class="flex-input">
+                <p id="ans-mountain"></p>
+                <i class="fa-solid fa-xmark fa-lg" id="checkSign4"></i>
+                <input type="text" class="input" id="mountainInput" onkeydown="keyInput(this.id)"><br>
+            </div>
             <div class="flex-container">
                 <button class="btn" title="Potvrdi" id="confirm-mountain" onclick="confirmAnswer('mountainInput')">
                     <p>Potvrdi odgovor<br>
@@ -98,7 +104,7 @@
     </container>
     <container id="kontenjer2">
         <div id="dugmad">
-            <h1 class="centar" id="slovo"></h1>
+            <h1 id="slovo"></h1>
             <!--<button class="btn" title="Promeni slovo" id="changeLetter" onclick="randomLetter(), deleteList()">
                 <p>Promeni slovo<br>
             </button class="btn">-->
