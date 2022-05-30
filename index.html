@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Zanimljive geografije</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d545d758e6.js" crossorigin="anonymous"></script>
+    <script src="jquery-3.6.0.js"></script>
+    <script src='GeoSkripta.js'></script>
+    <script src="tata.js"></script>
+</head>
+<body>
+    <div class="topnav" id="topnav">
+        <a id="navStart" class="active" href="index.html">Početna</a>
+        <a id="navSingle" onclick="start()">Singleplayer</a>
+        <a id="navHelp" onclick="help()">Pomoć</a>
+        <a id="navAnswers" href="answers.html">Odgovori</a>
+      </div>
+    <container id="pocetniKontenjer">
+        <h1>Zanimljive Geografije</h1>
+        <p >Dobrodošli u zanimljive geografije, počnite igru kilkom na dugme ispod.</p>
+        <button class="btn" title="Počni" id="start" onclick="start()">
+            <p>Singleplayer<br>
+        </button class="btn"><br>
+        <button class="btn" title="Pomoć" id="help" onclick="help()">
+            <p>Pomoć<br>
+        </button class="btn"><br>
+        <a href="answers.html">
+        <button class="btn" title="Pogledaj odgovore" id="answers">
+            <p>Odgovori<br>
+        </button class="btn"></a>
+    </container>
+    <container id="helpContainer">
+        <h1>Pomoć</h1>
+        <h3>Pravila i kontrole</h3>
+        <p>1. Možete uneti samo odgovor koji počinje na zadato početno slovo.</p>
+        <p>2. Podrazumevano vremensko ograničenje je 2 minuta (možete postaviti i kraće). Nakon isteka vremena igra se prekida i prikazuje vam se rezultat.</p>
+        <p>3. Odgovore unosite u označena polja. U toku unosa vrši se automatska provera vašeg odgovora. Ukoliko je odgovor tačan, pored polja za unos prikazaće vam se znak <i class="fa-solid fa-check fa-lg"></i>, u suprotnom stajaće <i class="fa-solid fa-xmark fa-lg"></i>.</p>
+        <p>4. Odgovor morate potvrditi pritiskom na "Enter" ili klikom na dugme "Potvrdi odgovor". Potvrdu odgovora možete izvršiti samo kada je odgovor proveren. Odnosno kada stoji znak: <i class="fa-solid fa-check fa-lg"></i></p>
+        <p>5. Klikom na dugme "Promeni slovo", dobićete nasumično izabrano novo početno slovo.</p>
+        <h3>Odgovori</h3>
+        <p>1. Za države je uneto preko 190 odgovora. Unete su sve države sveta osim onih koje počinju na Š,Č,Ž.</p>
+        <p>2. Za gradove je uneto preko 500 odgovora. Uneti su svi glavni gradovi, najveći gradovi sveta, svi gradovi u Srbiji i još mnogo većih gradova iz ostalih država.</p>
+        <p>3. Za sela je uneto</p>
+        <p>4. Za planine je uneto</p>
+        <p>5. Za reke je uneto</p>
+        <p>Sve odgovore možete pogledati klikom na dugme "Pogledaj odgovore".</p>
+        <h3>Bodovanje</h3>
+        <p>U Singleplayer modu, svaki odgovor nosi 10 bodova.</p>
+        <p>U Multiplayer modu, svaki odgovor koji se podudara sa odgovorom bilo kog od protivnika nosi 5 bodova. Ukoliko se ne podudara ni sa jednim, nosi 10 bodova, a ukoliko je to jedini odgovor za tu kolonu, odgovor nosi 20 bodova.</p>
+        <!--<div class="pomocNav">
+            <button class="btn" title="Nazad" id="back" onclick="start()">
+                <p>Nazad<br>
+            </button class="btn">
+            <a href="answers.txt">
+            <button class="btn" title="Pogledaj odgovore" id="answers2">
+                <p>Pogledaj odgovore<br>
+            </button class="btn"></a>
+        </div>-->
+    </container>
+    <container id="kontenjer">
+        <div>
+        <h1>Država:</h1>
+        <div class="flex-input">
+            <p id="ans-country"></p>
+            <input type="text" class="input" id="countryInput" onkeydown="keyInput(this.id)">
+            <i class="fa-solid fa-xmark fa-lg" id="checkSign1"></i>
+        </div>
+        <div class="flex-container">
+            <button class="btn confirm" title="Potvrdi" id="confirm-country" onclick="confirmAnswer('countryInput')">
+                <p>Potvrdi odgovor<br>
+            </button class="btn">
+            <button class="delete btn" title="Obriši" id="delete-country" onclick="deleteAnswer('countryInput')">
+                <p>Obriši odgovor<br>
+            </button class="btn">
+        </div>
+        </div>
+        <div>
+            <h1>Grad:</h1>
+            <div class="flex-input">
+                <p id="ans-city"></p>
+                <input type="text" id="cityInput" onkeydown="keyInput(this.id)">
+                <i class="fa-solid fa-xmark fa-lg" id="checkSign2"></i>
+            </div>
+            <div class="flex-container">
+                <button class="btn confirm" title="Potvrdi" id="confirm-city" onclick="confirmAnswer('cityInput')">
+                    <p>Potvrdi odgovor<br>
+                </button class="btn">
+                <button class="delete btn" title="Obriši" id="delete-city" onclick="deleteAnswer('cityInput')">
+                    <p>Obriši odgovor<br>
+                </button class="btn">
+            </div>
+            </div>
+        <div>
+            <h1>Selo:</h1>
+            <div class="flex-input">
+                <p id="ans-village"></p>
+                <input type="text" class="input" id="villageInput" onkeydown="keyInput(this.id)">
+                <i class="fa-solid fa-xmark fa-lg" id="checkSign3"></i>
+            </div>
+            <div class="flex-container">
+                <button class="btn confirm" title="Potvrdi" id="confirm-village" onclick="confirmAnswer('villageInput')">
+                    <p>Potvrdi odgovor<br>
+                </button class="btn">
+                <button class="delete btn" title="Obriši" id="delete-village" onclick="deleteAnswer('villageInput')">
+                    <p>Obriši odgovor<br>
+                </button class="btn">
+            </div>
+            </div>
+        <div>
+            <h1>Planina:</h1>
+            <div class="flex-input">
+                <p id="ans-mountain"></p>
+                <input type="text" class="input" id="mountainInput" onkeydown="keyInput(this.id)">
+                <i class="fa-solid fa-xmark fa-lg" id="checkSign4"></i>
+            </div>
+            <div class="flex-container">
+                <button class="btn confirm" title="Potvrdi" id="confirm-mountain" onclick="confirmAnswer('mountainInput')">
+                    <p>Potvrdi odgovor<br>
+                </button class="btn">
+                <button class="delete btn" title="Obriši" id="delete-mountain" onclick="deleteAnswer('mountainInput')">
+                    <p>Obriši odgovor<br>
+                </button class="btn">
+            </div>
+            </div>
+        <div>
+            <h1>Reka:</h1>
+            <div class="flex-input">
+                <p id="ans-river"></p>
+                <input type="text" class="input" id="riverInput" onkeydown="keyInput(this.id)">
+                <i class="fa-solid fa-xmark fa-lg" id="checkSign5"></i>
+            </div>
+            <div class="flex-container">
+                <button class="btn confirm" title="Potvrdi" id="confirm-river" onclick="confirmAnswer('riverInput')">
+                    <p>Potvrdi odgovor<br>
+                </button class="btn">
+                <button class="delete btn" title="Obriši" id="delete-river" onclick="deleteAnswer('riverInput')">
+                    <p>Obriši odgovor<br>
+                </button class="btn">
+            </div>
+        </div>
+    </container>
+    <container id="kontenjer2">
+        <div id="dugmad">
+            <h1 id="slovo"></h1>
+            <!--<button class="btn" title="Promeni slovo" id="changeLetter" onclick="randomLetter(), deleteList()">
+                <p>Promeni slovo<br>
+            </button class="btn">-->
+            <input type="text" id="menjaj" style="padding-left:10px;" onkeydown="menjaj()">
+            <button class="btn" title="Promeni slovo"onclick="menjaj(1)">
+                <p>Promeni slovo<br>
+            </button class="btn">
+            <button class="btn" title="Obriši" id="deleteList" onclick="deleteList()">
+                <p>Obriši sve odgovore<br>
+            </button class="btn">
+            <button class="btn" title="Potvrdi listu" id="confirmList" onclick="confirmList(), showList()">
+                <p>Potvrdi listu<br>
+            </button class="btn">
+        </div>
+        <div id="list">
+            <h2 id="p1"></p>
+            <h2 id="p2"></p>
+            <h2 id="p3"></p>
+            <h2 id="p4"></p>
+            <h2 id="p5"></p>
+            <h1 id="p6"></p>
+        </div>    
+    </container>
+
+</body>
+</html>
